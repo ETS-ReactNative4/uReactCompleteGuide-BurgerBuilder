@@ -4,7 +4,7 @@ import Button from '../../UI/Button/Button'
 
 // This could be a functional component, doesn't have to be a class
 class OrderSummary extends Component {
-    componentWillUpdate() {
+    UNSAFE_componentWillUpdate() {
         console.log('[OrderSummary will update');
     }
 
