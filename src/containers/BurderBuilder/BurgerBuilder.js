@@ -12,7 +12,6 @@ import * as actionTypes from '../../store/actions'
 
 class BurgerBuilder extends Component {
     state = {
-        purchsable: false,
         purchasing: false,
         loading: false,
         error: false
@@ -34,7 +33,7 @@ class BurgerBuilder extends Component {
             .reduce((sum, el) => {
                 return sum + el
             }, 0);
-        this.setState({ purchsable: sum > 0 })
+        return sum > 0;
     }
 
     purchaseHandler = () => {
@@ -78,7 +77,7 @@ class BurgerBuilder extends Component {
                         ingredientAdded={this.props.onIngredientAdded}
                         ingredientRemoved={this.props.onIngredientRemoved}
                         disabled={disabledInfo}
-                        purchsable={this.state.purchsable}
+                        purchsable={this.updatePurchseState(this.props.ings)}
                         ordered={this.purchaseHandler}
                         price={this.props.price} />
                 </Aux>
